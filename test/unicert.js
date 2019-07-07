@@ -26,25 +26,25 @@ contract('UniCert', function(accounts) {
     
     });
 
-    it("Should allow an admin to load a user's wallet", async () => {
+    // it("Should allow an admin to load a user's wallet", async () => {
 
-        let tx1 = await uniCertInstance.createUser(accounts[1], "Allan",
-                                    "Katongole","kapsonkatongole@gmail.com",1,
-                                    {from: accounts[0]});
+    //     let tx1 = await uniCertInstance.createUser(accounts[1], "Allan",
+    //                                 "Katongole","kapsonkatongole@gmail.com",1,
+    //                                 {from: accounts[0]});
 
-        const userCreated = tx1.logs[0];
+    //     const userCreated = tx1.logs[0];
 
-        let tx = await uniCertInstance.loadWallet(userCreated.args.useraddress, 10,
-                                    {from: accounts[0]});
+    //     let tx = await uniCertInstance.loadWallet(userCreated.args.useraddress, 10,
+    //                                 {from: accounts[0]});
     
-        assert.strictEqual(tx.receipt.logs.length, 1, "loadWallet() call did not log 1 event");
-        assert.strictEqual(tx.logs.length, 1, "loadWallet() call did not log 1 event");
-        const walletLoaded = tx.logs[0];
-        assert.strictEqual(walletLoaded.event, "walletLoaded", "loadWallet() call did not log event userCreated");
-        assert.strictEqual(walletLoaded.args.receivingaddress, accounts[1], "walletLoaded event logged did not have expected user address");
-        assert.strictEqual(walletLoaded.args.amount.toNumber(), 10, "walletLoaded event logged did not have expected firstname");
+    //     assert.strictEqual(tx.receipt.logs.length, 1, "loadWallet() call did not log 1 event");
+    //     assert.strictEqual(tx.logs.length, 1, "loadWallet() call did not log 1 event");
+    //     const walletLoaded = tx.logs[0];
+    //     assert.strictEqual(walletLoaded.event, "walletLoaded", "loadWallet() call did not log event userCreated");
+    //     assert.strictEqual(walletLoaded.args.receivingaddress, accounts[1], "walletLoaded event logged did not have expected user address");
+    //     assert.strictEqual(walletLoaded.args.amount.toNumber(), 10, "walletLoaded event logged did not have expected firstname");
     
-    });
+    // });
 
     it("Should allow an admin to update certification fees", async () => {
 
